@@ -13,6 +13,7 @@ function App() {
 const getRecipes = async () => {
   var result = await Axios.get(url);
   setrecipes(result.data.hits);
+  console.log(result.data);
 }
 
 const onSubmit = (e) => {
