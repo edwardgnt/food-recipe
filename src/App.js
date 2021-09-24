@@ -6,7 +6,7 @@ import RecipeTile from './RecipeTile';
 function App() {
   const [query, setquery] = useState('');
   const [recipes, setrecipes] = useState([]);
-
+  const [healthLabel, sethealthLabel] = useState("vegan")
 
   var url = `https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=67d9a479&app_key=038cbc7baab18218091e6bca8a60e9b6`;
 
@@ -28,7 +28,8 @@ const onSubmit = (e) => {
         <input className="app_input" type="text" placeholder="Enter ingredient" value={query} onChange={(e) => setquery(e.target.value) } />
         <input className="app_submit" type="submit" value="Search" />
       </form>
-      <div>
+
+      <div className="app_recipes">
         {recipes.map(recipe => {
           return <RecipeTile recipe={recipe} />
         })}
